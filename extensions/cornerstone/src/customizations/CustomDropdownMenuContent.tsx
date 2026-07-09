@@ -67,6 +67,9 @@ export const CustomDropdownMenuContent = () => {
     downloadCSVSegmentationReport: segmentationId => {
       commandsManager.run('downloadCSVSegmentationReport', { segmentationId });
     },
+    downloadSegmentation: segmentationId => {
+      commandsManager.run('downloadSegmentation', { segmentationId });
+    },
   };
 
   return (
@@ -100,6 +103,13 @@ export const CustomDropdownMenuContent = () => {
         allowExport={allowExport}
         actions={actions}
       />
+      <DropdownMenuItem
+        onClick={() => actions.downloadSegmentation(segmentationId)}
+        disabled={!allowExport}
+      >
+        <Icons.Export className="text-foreground" />
+        <span className="pl-2">{t('Download DICOM SEG')}</span>
+      </DropdownMenuItem>
       <DropdownMenuSeparator />
       <DropdownMenuItem onClick={() => onSegmentationDelete(segmentationId)}>
         <Icons.Delete className="text-red-600" />
