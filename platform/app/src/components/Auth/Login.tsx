@@ -7,7 +7,7 @@ type LoginProps = {
 };
 
 function Login({ onSuccess }: LoginProps) {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(''); // Можно было, конечно, установить react-hook-form, но для двух инпутов не стал заморачиваться. Конечно, для форм RHF в приоритете)
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
