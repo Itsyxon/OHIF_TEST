@@ -35,6 +35,7 @@ import createRoutes from './routes';
 import appInit from './appInit.js';
 import OpenIdConnectRoutes from './utils/OpenIdConnectRoutes';
 import { ShepherdJourneyProvider } from 'react-shepherd';
+import AuthGate from './components/Auth/AuthGate';
 import './App.css';
 
 let commandsManager: CommandsManager,
@@ -172,8 +173,10 @@ function App({
         basename={routerBasename}
         future={routerFutureFlags}
       >
-        {authRoutes}
-        {appRoutes}
+        <AuthGate>
+          {authRoutes}
+          {appRoutes}
+        </AuthGate>
       </BrowserRouter>
     </CombinedProviders>
   );

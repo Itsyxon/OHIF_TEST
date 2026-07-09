@@ -28,6 +28,7 @@ const {
   },
 } = adaptersRT;
 
+const TEST_NAME = 'Ivanov Ivan Ivanovich';
 
 const commandsModule = ({
   servicesManager,
@@ -175,6 +176,8 @@ const commandsModule = ({
         predecessorImageId,
         ...options,
       });
+
+      generatedSegmentation.dataset.PerformingPhysicianName = TEST_NAME;
 
       return generatedSegmentation;
     },
