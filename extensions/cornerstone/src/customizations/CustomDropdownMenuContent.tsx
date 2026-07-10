@@ -70,6 +70,9 @@ export const CustomDropdownMenuContent = () => {
     downloadSegmentation: segmentationId => {
       commandsManager.run('downloadSegmentation', { segmentationId });
     },
+    downloadRTSS: segmentationId => {
+      commandsManager.run('downloadRTSS', { segmentationId });
+    },
   };
 
   return (
@@ -109,6 +112,13 @@ export const CustomDropdownMenuContent = () => {
       >
         <Icons.Export className="text-foreground" />
         <span className="pl-2">{t('Download DICOM SEG')}</span>
+      </DropdownMenuItem>
+      <DropdownMenuItem
+        onClick={() => actions.downloadRTSS(segmentationId)}
+        disabled={!allowExport}
+      >
+        <Icons.Export className="text-foreground" />
+        <span className="pl-2">{t('Download DICOM RTSS')}</span>
       </DropdownMenuItem>
       <DropdownMenuSeparator />
       <DropdownMenuItem onClick={() => onSegmentationDelete(segmentationId)}>

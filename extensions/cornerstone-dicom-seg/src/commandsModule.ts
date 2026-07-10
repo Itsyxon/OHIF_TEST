@@ -309,6 +309,7 @@ const commandsModule = ({
         predecessorImageId,
         ...options,
       });
+      dataset.PerformingPhysicianName = TEST_NAME;
       return { dataset };
     },
 
